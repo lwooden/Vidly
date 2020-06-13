@@ -14,7 +14,7 @@ namespace Vidly
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             // Custom Routes
-            // Place in order of specificity just like React
+            // Place in order of specificity just like React/Express
             // Leave default at the end
 
             // Convention-Based Routing (Old)
