@@ -20,6 +20,8 @@ namespace Vidly.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // add a DbSet for Customer Model so Entity Framework can be aware of it
+        public DbSet<Customer> Customer { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
