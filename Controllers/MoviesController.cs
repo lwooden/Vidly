@@ -19,6 +19,7 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() {Name = "30 for 30"};
+
             var customers = new List<Customer>
             {
                 new Customer {Name = "Lowell"},
@@ -40,6 +41,22 @@ namespace Vidly.Controllers
             //return RedirectToAction("Index", "Home", new {page = 1, sortby = "name"});
         }
 
+        public ActionResult Index()
+        {
+            var movies = GetMovies();
+
+            return View(movies);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Training Day"},
+                new Movie {Id = 2, Name = "Black Knight"}
+            };
+        }
+
 
         public ActionResult Edit(int id)
         {
@@ -48,7 +65,7 @@ namespace Vidly.Controllers
         }
 
         // ? - makes the parameter "nullable"
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index2(int? pageIndex, string sortBy)
         {
             if (!pageIndex.HasValue)
                 pageIndex = 1;
